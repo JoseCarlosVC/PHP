@@ -8,12 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Ejercicios: </h1>
-    <ol>
-        <li><a href="./1-Potencias/index.php">Ejercicio 1</a></li>
-        <li><a href="./2-MinMax/index.php">Ejercicio 2</a></li>
-        <li><a href="./3-Rotar/index.php">Ejercicio 3</a></li>
-        <li><a href="./4-Resaltar/index.php">Ejercicio 4</a></li>
-    </ol>
+    <?php
+    
+    ?>
 </body>
 </html>

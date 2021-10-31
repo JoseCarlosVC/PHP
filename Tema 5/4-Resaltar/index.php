@@ -13,25 +13,49 @@
         $ocurrencia = $_POST['ocurrencia'];
         $arr_num = $_POST['arr_num'];
 
+        //Creamos el array de numeros al principio del programa y mostramos sus valores
         if(!isset($valor)){
-            $numeros = new SplFixedArray(100);
-            for($i = 0; $i < count($numeros); $i++){
+            for($i = 0; $i <100; $i++){
                 $numeros[$i] = rand(0,20);
             }
-        //Necesitamos crear el array al principio del programa, al recargar la página lo pasaremos por POST junto al resto de datos
+            //Mostramos los valores
+            foreach($numeros as $n){
+                echo "<span>".$n."</span>"." ";
+            }
+            //Para enviar el array, podemos convertirlo en un String con la función implode, cuyo funcionamiento es el contrario a la función explode usada en los anteriores ejercicios
+            //Si no lo enviamos, al recargar la página se generaría un array distinto al que ya tenemos
+            $str_array = implode(",",$numeros);
     ?>
     <form action="#" method="POST">
-        <input type="hidden" name="arr_num" value="<?php echo($numeros) ?>">
-        <label>Introduce el valor a buscar</label>
-        <input type="number" min="0" max="20" name="valor"><br>
-        <label>Introduce el valor por el que se modificara</label>
+        <input type="hidden" name="arr_num" value="<?php echo $str_array; ?>">
+        <!-- El primer valor es un valor que existirá en el array; por lo tanto debe ser un valor de 0 a 20 -->
+        <label>Introduce el valor a cambiar: </label>
+        <input type="number" name="valor" min="0" max="20"><br>
+        <label>Introduce el valor por el que será sustituido: </label>
         <input type="number" name="ocurrencia"><br>
         <input type="submit" value="Enviar">
     </form>
     <?php
         }else{
-            foreach($arr_num as $n){
-                echo $n." ";
+            //Tenemos que convertir el String a array otra vez
+            $arr_num = explode(",",$arr_num);
+            //Como tenemos que comparar los valores para resaltarlos, copiamos el array para modificarlo
+            $arr_copia = $arr_num;
+            //Buscamos los valores y los cambiamos...
+            for($j=0; $j<count($arr_copia);$j++){
+                if($arr_copia[$j] == $valor){
+                    $arr_copia[$j] = $ocurrencia;
+                }
+            }
+            //Mostramos el array cambiado...
+            //Foreach no permite recorrer dos arrays a la vez, usaremos un for normal entonces
+            for($k=0; $k<count($arr_num);$k++){
+                //Si son iguales nada más que los mostramos, si no son iguales...
+                if($arr_num[$k]==$arr_copia[$k]){
+                    echo $arr_copia[$k]." ";
+                }else{
+                    echo "<span style='background-color:#FF4C4C;'>".$arr_copia[$k]."</span> ";
+                }
             }
         }
     ?>
