@@ -104,6 +104,20 @@
     }
 
     function voltea($numero){
+        $reverso = 0;
+        $operacion = $numero;
+        while($operacion>0){
+            //Multiplicamos el numero por 10 para que, al añadir el proximo valor del numero no se sumen
+            $reverso = $reverso * 10;
+            //Cogemos el ultimo numero...
+            $reverso += $operacion % 10;
+            $operacion = $operacion % 10;
+            $operacion = floor($operacion);
+        }
+        return $reverso;
+    }
+
+    function digitoN($numero){
         
     }
 ?>
