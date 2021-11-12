@@ -71,23 +71,29 @@
     }
 
     function siguientePrimo($numero){
+        $candidato  = $numero;
+        $es_primo = true;
         $primo = 0;
-        $es_primo = false;
-        $i = $numero;
         while($primo == 0){
-            for($j=2; $i<$numero; $i++){
-                if(($numero % $i) == 0){
-                    $primo = $i;
+            $candidato ++;
+            for($i=2; $i<$candidato; $i++){
+                if(($candidato % $i) == 0){
+                    //Si en algun caso es divisible, se descarta
+                    $es_primo = false;
                 }
-                $i++;
+            }
+            if($es_primo == true){
+                $primo = $candidato;
+            }else{
+                $es_primo = true;
             }
         }
         return $primo;
     }
 
     function potencia($base,$exponente){
-        $potencia = 1;
-        for($i = 0; $i < $exponente; $i++){
+        $potencia = 0;
+        for($i = 1; $i < $exponente; $i++){
             $potencia += $base * $base;
         }
         return $potencia;
@@ -97,7 +103,8 @@
         $digitos = 0;
         $contar = $numero;
         while($contar > 0){
-            $contar = $contar%10;
+            $contar = $contar/10;
+            $contar = floor($contar);
             $digitos++;
         }
         return $digitos;
@@ -175,13 +182,12 @@
         return $cortar;
     }
 
-    //TODO esta mierda
+    //TODO te has quedado aquí!!
     function quitaPorDelante($numero, $cantidad){
-
+        $numero = voltea($numero);
     }
 
     function pegaPorDetras($numero, $digito){
-        //bleh
-        //*
+
     }
 ?>
