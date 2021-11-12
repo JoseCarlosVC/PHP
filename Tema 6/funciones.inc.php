@@ -117,7 +117,70 @@
         return $reverso;
     }
 
-    function digitoN($numero){
-        
+    function digitoN($numero, $posicion){
+        $contar = $numero;
+        $operacion = $numero;
+        $localizacion = -1; //La primera posición será 0
+        $cifra = 0;
+
+        while($contar > 0){
+            $contar = $contar/10;
+            $contar = floor($contar);
+            $localizacion ++;
+        }
+
+        while($operacion > 0){
+            $cifra = $operacion % 10;
+            if($localizacion == $posicion){
+                return $cifra;
+            }
+            $operacion = $operacion / 10;
+            $operacion = floor($operacion);
+            $localizacion --;
+        }
+    }
+
+    function posicionDeDigito($numero, $digito){
+        $posicion = -1;
+        $contar = $numero;
+        $operacion = $numero;
+        $longitud = -1;
+        $cifra = 0;
+        while($contar > 0){
+            $contar = $contar / 10;
+            $contar = floor($contar);
+            $longitud ++;
+        }
+
+        while($operacion > 0){
+            $cifra = $operacion % 10;
+            if($cifra == $digito){
+                $posicion = $longitud;
+            }
+            $operacion = $operacion / 10;
+            $operacion = floor($operacion);
+            $longitud --;
+        }
+        return $posicion;
+    }
+
+    function quitaPorDetras($numero, $cantidad){
+        $cortar = $numero;
+        $contador = 0;
+
+        while($contador < $cantidad){
+            $cortar = $cortar / 10;
+            $cortar = floor($cortar);
+        }
+        return $cortar;
+    }
+
+    //TODO esta mierda
+    function quitaPorDelante($numero, $cantidad){
+
+    }
+
+    function pegaPorDetras($numero, $digito){
+
     }
 ?>
