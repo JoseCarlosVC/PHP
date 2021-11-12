@@ -182,5 +182,6 @@
 
     function pegaPorDetras($numero, $digito){
         //bleh
+        //*
     }
 ?>
