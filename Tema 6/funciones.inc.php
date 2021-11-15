@@ -118,7 +118,7 @@
             $reverso = $reverso * 10;
             //Cogemos el ultimo numero...
             $reverso += $operacion % 10;
-            $operacion = $operacion % 10;
+            $operacion = $operacion / 10;
             $operacion = floor($operacion);
         }
         return $reverso;
@@ -176,18 +176,50 @@
         $contador = 0;
 
         while($contador < $cantidad){
-            $cortar = $cortar / 10;
-            $cortar = floor($cortar);
+            $cortar = floor($cortar / 10);
+            $contador++;
         }
         return $cortar;
     }
 
-    //TODO te has quedado aquí!!
     function quitaPorDelante($numero, $cantidad){
-        $numero = voltea($numero);
+        $quitar = voltea($numero);
+        $quitar = quitaPorDetras($quitar, $cantidad);
+        $quitar = voltea($quitar);
+        return $quitar;
     }
 
     function pegaPorDetras($numero, $digito){
+        $pegar = $numero;
+        $pegar *= 10;
+        //Para añadir UN dígito, solo es necesario multiplicar el número por 10 y sumar el digito
+        $pegar += $digito;
+        return $pegar;
+    }
 
+    function pegaPorDelante($numero, $digito){
+        $pegar = voltea($numero);
+        $pegar *= 10;
+        $pegar += $digito;
+        $pegar = voltea($pegar);
+        return $pegar;
+    }
+
+    function trozoDeNumero($numero, $inicio, $fin){
+        $trocear = $numero;
+        $trocear = quitaPorDetras($trocear, $fin);
+        $trocear = quitaPorDelante($trocear, $inicio);
+        return $trocear;
+    }
+
+    function juntaNumeros($primero, $segundo){
+        $juntar = $primero;
+        $contar = $segundo;
+        $cantidad = 0;
+        while($contar>0){
+            $contar = floor($contar/10);
+            $cantidad ++;
+        }
+        return $cantidad;
     }
 ?>
