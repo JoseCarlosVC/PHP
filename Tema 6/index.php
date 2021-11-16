@@ -9,8 +9,12 @@
 <body>
     <?php
         require_once("./funciones.inc.php");
-        $numero = 123456789;
-        echo juntaNumeros($numero,8564);
+        require_once("./funcionesArr.php");
+        $numero = [1,2,3,4,5,6,7];
+        $numero = rotaIzquierdaArrayInt($numero,2);
+        foreach ($numero as $n){
+            echo "$n <br>";
+        }
     ?>
 </body>
 </html>
