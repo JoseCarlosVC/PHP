@@ -11,8 +11,8 @@
         require_once("./funciones.inc.php");
         require_once("./funcionesArr.php");
         $numero = [1,2,3,4,5,6,7];
-        $numero = rotaIzquierdaArrayInt($numero,2);
-        foreach ($numero as $n){
+        $voltear = volteaArrayInt($numero);
+        foreach ($voltear as $n){
             echo "$n <br>";
         }
     ?>

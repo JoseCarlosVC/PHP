@@ -62,7 +62,7 @@
     function volteaArrayInt($arr){
         $voltear = new SplFixedArray(count($arr));
         //Empezamos un array por el principio y el otro por el final, es la manera más facil de rotar un array completo
-        for($i = 0, $j = count($arr); $i < count($arr); $i++, $j--){
+        for($i = 0, $j = (count($arr)-1); $i < count($arr); $i++, $j--){
             $voltear[$i] = $arr[$j];
         }
         return $voltear;
