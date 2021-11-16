@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'Benguiat Gothic';
+    src: url(./fonts/Benguiat\ Gothic\ Regular.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Benguiat Gothic';
+    src: url(./fonts/ITC\ Benguiat\ Gothic\ Std\ Bold.otf) format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Benguiat Gothic';
+}
+
+p {
+    position: relative;
+    top: 450px;
+    left: 30px;
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px 0px;
+    background: #e9a718;
+    border-radius: 10px;
+}
+
+form {
+    height: 400px;
+    width: 500px;
+    position: relative;
+    top: 30px;
+    left: 30px;
+    background: #9474A4;
+    border-radius: 20px;
+    text-align: center;
+}
+
+label {
+    padding: 10px;
+    margin: 5px 0px;
+    width: 150px;
+    background: #6EB592;
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    margin: 5px 0px;
+    width: 150px;
+    background: #6EB592;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+table {
+    background: #9474A4;
+    margin: 5px 0px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+th,
+td {
+    border: 2px solid #4d978b;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: #4d978b;
+    text-align: center;
+}
+
+li {
+    display: inline-block;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 20px;
+    background: #18cf89;
+    border-radius: 10px;
+}
