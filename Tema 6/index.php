@@ -10,7 +10,7 @@
     <?php
         require_once("./funciones.inc.php");
         $numero = 123456789;
-        echo juntaNumeros($numero,8);
+        echo juntaNumeros($numero,8564);
     ?>
 </body>
 </html>

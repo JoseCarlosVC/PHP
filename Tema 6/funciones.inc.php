@@ -216,10 +216,17 @@
         $juntar = $primero;
         $contar = $segundo;
         $cantidad = 0;
+        //Contamos las cifras del segundo número
         while($contar>0){
             $contar = floor($contar/10);
             $cantidad ++;
         }
-        return $cantidad;
+        //Multiplicamos el primer número por 10 tantas veces como cifras tenga el número
+        for($i = 0; $i<$cantidad; $i++){
+            $juntar *= 10;
+        }
+        //Por último, solo tenemos que sumar el segundo número
+        $juntar += $segundo;
+        return $juntar;
     }
 ?>
