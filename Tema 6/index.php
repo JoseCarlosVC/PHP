@@ -9,8 +9,12 @@
 <body>
     <?php
         require_once("./funciones.inc.php");
-        $numero = 123;
-        echo voltea($numero);
+        require_once("./funcionesArr.php");
+        $numero = [1,2,3,4,5,6,7];
+        $voltear = volteaArrayInt($numero);
+        foreach ($voltear as $n){
+            echo "$n <br>";
+        }
     ?>
 </body>
 </html>
