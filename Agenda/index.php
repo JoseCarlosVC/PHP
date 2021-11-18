@@ -25,7 +25,7 @@
             $agenda = array();
         }
         if($contador == 4){
-            echo "Contador = 2, final del ejercicio <br>";
+            echo "Contador = 4, final del ejercicio <br>";
             var_dump($agenda);
             echo "<br>";
             print_r($agenda)."<br>";
