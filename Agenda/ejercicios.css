@@ -28,7 +28,7 @@ p {
 }
 
 form {
-    height: 400px;
+    height: 200px;
     width: 500px;
     position: relative;
     top: 30px;
@@ -36,11 +36,12 @@ form {
     background: #9474A4;
     border-radius: 20px;
     text-align: center;
+    margin: 0 auto;
 }
 
 label {
     padding: 10px;
-    margin: 5px 0px;
+    margin: 5px 5px;
     width: 150px;
     background: #6EB592;
     border-radius: 10px;
@@ -50,7 +51,7 @@ label {
 
 input {
     padding: 10px;
-    margin: 5px 0px;
+    margin: 10px 5px;
     width: 150px;
     background: #6EB592;
     border-radius: 10px;
@@ -59,9 +60,9 @@ input {
 
 table {
     background: #9474A4;
-    margin: 5px 0px;
     padding: 10px;
     border-radius: 10px;
+    margin: 0 auto;
 }
 
 th,

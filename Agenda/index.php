@@ -4,40 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href="./ejercicios.css" type="text/css" rel="stylesheet"> -->
+    <link href="./ejercicios.css" type="text/css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     <?php
         if(!empty($_POST['agenda'])){
+
             $agenda = $_POST['agenda'];
-            $agenda[$_POST['nombre']] = $_POST['tlf'];
+            
+            if(in_array($_POST['nombre'], $agenda) && isset($_POST['tlf'])){
+                actualizarAgenda($agenda, $_POST['nombre'], $_POST['tlf']);
+            }else if(in_array($_POST['nombre'], $agenda) && !(isset($_POST['tlf']))){
+                eliminarAgenda($agenda, $nombre);
+            }else{
+                $agenda[$_POST['nombre']] = $_POST['tlf'];
+            }
+
+            
+            echo "¿Muestro la agenda aquí? <br>";
+            /*foreach($agenda as $clave => $valor){
+                echo "Clave: $clave Valor: $valor <br>";
+            }*/
+            mostrarAgenda($agenda);
             //array_push($agenda, array($_POST['nombre'] => $_POST['tlf']));
         }else if(!empty($_POST['nombre'])){
+            //Aqui va el primer valor, no es necesario hacer ninguna comprobación en el primer valor
             $agenda = array($_POST['nombre'] => $_POST['tlf']);
+            echo "¿Muestro el primer valor aquí? <br>";
+            /*foreach($agenda as $clave => $valor){
+                echo "Clave: $clave Valor: $valor <br>";
+            }*/
+            mostrarAgenda($agenda);
         }else{
-            $agenda = $_POST['agenda'];
-        }
-        //$agenda = $_POST['agenda'];
-        $contador = $_POST['contador'];
-        if(!isset($contador)){
-            $contador = 0;
+            //Aquí declaramos la agenda por primera vez
+            //$agenda = $_POST['agenda'];
+            //$contador = 0;
             $agenda = array();
         }
-        if($contador == 4){
+        /*
+        $contador = $_POST['contador'];*/
+        /* if(!isset($contador)){
+            $contador = 0;
+            $agenda = array();
+        }*/
+
+        //Probar que funciona el array
+        /* if($contador == 4){
             echo "Contador = 4, final del ejercicio <br>";
             var_dump($agenda);
             echo "<br>";
             print_r($agenda)."<br>";
-        }else{
+        }else{*/
     ?>
     <form action="#" method="POST">
         <?php
-        echo "Aqui";
         if(!empty($agenda)){
             foreach($agenda as $clave => $valor){
-                echo $clave;
-                echo $valor;
                 echo "<input type='hidden' name='agenda[$clave]' value='$valor'>";
             }
         } 
@@ -50,9 +73,29 @@
         <input type="submit" value="Enviar">
     </form>
     <?php
+      //  }
+        function mostrarAgenda($agenda){
+            echo "<table>";
+                echo "<tr>";
+                    echo "<th>Nombre: </th>";
+                    echo "<th>Teléfono: </th>";
+                echo "</tr>";
+                foreach($agenda as $clave => $valor){
+                    echo "<tr>";
+                        echo "<td>$clave</td>";
+                        echo "<td>$valor</td>";
+                    echo "</tr>";
+                }
+            echo "</table>";
+        }
+
+        function actualizarAgenda($agenda, $nombre ,$numero){
+            $agenda[$nombre] = $numero;
+        }
+
+        function eliminarAgenda($agenda, $nombre){
+            unset($agenda[$nombre]);
         }
     ?>
-<!-- https://www.phpexercises.com/php-associative-array-exercise.html -->
-<!-- https://shareurcodes.com/blog/randomize%20%20multidimensional%20associative%20array%20in%20php -->
 </body>
 </html>
