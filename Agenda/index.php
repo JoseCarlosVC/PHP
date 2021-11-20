@@ -37,7 +37,6 @@
             }
         } 
         ?>
-        <input type="hidden" name="contador" value="<?php echo ++$contador ?>">
         <label>Introduce un nombre: </label>
         <input type="text" name="nombre" required autofocus><br>
         <label>Introduce el número de teléfono: </label>
