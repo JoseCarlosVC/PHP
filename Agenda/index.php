@@ -20,42 +20,14 @@
             }else{
                 $agenda[$_POST['nombre']] = $_POST['tlf'];
             }
-
-            
-            echo "¿Muestro la agenda aquí? <br>";
-            /*foreach($agenda as $clave => $valor){
-                echo "Clave: $clave Valor: $valor <br>";
-            }*/
             mostrarAgenda($agenda);
-            //array_push($agenda, array($_POST['nombre'] => $_POST['tlf']));
         }else if(!empty($_POST['nombre'])){
             //Aqui va el primer valor, no es necesario hacer ninguna comprobación en el primer valor
             $agenda = array($_POST['nombre'] => $_POST['tlf']);
-            echo "¿Muestro el primer valor aquí? <br>";
-            /*foreach($agenda as $clave => $valor){
-                echo "Clave: $clave Valor: $valor <br>";
-            }*/
             mostrarAgenda($agenda);
         }else{
-            //Aquí declaramos la agenda por primera vez
-            //$agenda = $_POST['agenda'];
-            //$contador = 0;
             $agenda = array();
         }
-        /*
-        $contador = $_POST['contador'];*/
-        /* if(!isset($contador)){
-            $contador = 0;
-            $agenda = array();
-        }*/
-
-        //Probar que funciona el array
-        /* if($contador == 4){
-            echo "Contador = 4, final del ejercicio <br>";
-            var_dump($agenda);
-            echo "<br>";
-            print_r($agenda)."<br>";
-        }else{*/
     ?>
     <form action="#" method="POST">
         <?php
@@ -73,7 +45,6 @@
         <input type="submit" value="Enviar">
     </form>
     <?php
-      //  }
         function mostrarAgenda($agenda){
             echo "<table>";
                 echo "<tr>";
@@ -88,11 +59,9 @@
                 }
             echo "</table>";
         }
-
         function actualizarAgenda($agenda, $nombre ,$numero){
             $agenda[$nombre] = $numero;
         }
-
         function eliminarAgenda($agenda, $nombre){
             unset($agenda[$nombre]);
         }
