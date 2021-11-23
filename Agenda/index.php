@@ -10,9 +10,7 @@
 <body>
     <?php
         if(!empty($_POST['agenda'])){
-
             $agenda = $_POST['agenda'];
-            
             if(in_array($_POST['nombre'], $agenda) && isset($_POST['tlf'])){
                 actualizarAgenda($agenda, $_POST['nombre'], $_POST['tlf']);
             }else if(in_array($_POST['nombre'], $agenda) && !(isset($_POST['tlf']))){
