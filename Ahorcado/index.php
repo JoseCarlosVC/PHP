@@ -21,7 +21,7 @@
         <input type="hidden" name="win" value="<?php echo $win; ?>">
         <input type="hidden" name="intentos" value="<?php echo $intentos; ?>">
         <label for="acierto">Introduce una palabra: </label>
-        <input type="text" name="acierto" pattern="(?=.*([A-Z]||[a-z])).*" autofocus><br>
+        <input type="text" name="acierto" pattern="(?=.*([A-Z]||[a-z])).*" autofocus required><br>
         <input type="submit" value="Enviar" name="enviar">
     </form>
     <?php
@@ -39,10 +39,10 @@
                 //Si se ha introducido un caracter, comprobamos si está en la palabra o no
                 //Por otra parte, si se ha introducido más de un caracter lo comparamos con la palabra para ver si se ha acertado o si se termina el juego
                 if(strlen($palabra) == 1){
-                    if(strpos($acierto, $palabra) != false){
+                    //Necesitamos una comparación estricta, ya que si strpos devuelve 0 si se encuentra en la primera posicion (0 se interpretará como false en una comparación normal)
+                    if(strpos($acierto, $palabra) !== false){
                         for($i = 0; $i < strlen($acierto); $i++){
                             if($acierto[$i] == $palabra){
-                                echo "entro aqui";
                                 //Si el caracter aparece en la palabra, hacemos que aparezca en pantalla
                                 $mostrar[$i] = $palabra;
                             }
@@ -74,7 +74,7 @@
         <input type="hidden" name="mostrar" value="<?php echo $mostrar; ?>">
         <input type="hidden" name="acierto" value="<?php echo $acierto; ?>">
         <label for="palabra">Introduce una letra o adivina la palabra</label>
-        <input type="text" name="palabra" pattern="(?=.*[A-Z]||[a-z]).*" autofocus><br>
+        <input type="text" name="palabra" pattern="(?=.*[A-Z]||[a-z]).*" autofocus required><br>
         <input type="submit" value="Enviar" name="enviar">
     </form>
     <?php
