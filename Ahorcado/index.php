@@ -39,7 +39,7 @@
                 //Si se ha introducido un caracter, comprobamos si está en la palabra o no
                 //Por otra parte, si se ha introducido más de un caracter lo comparamos con la palabra para ver si se ha acertado o si se termina el juego
                 if(strlen($palabra) == 1){
-                    //Necesitamos una comparación estricta, ya que si strpos devuelve 0 si se encuentra en la primera posicion (0 se interpretará como false en una comparación normal)
+                    //Necesitamos una comparación estricta, ya que si strpos devuelve 0 si se encuentra en la primera posicion (0 se interpretará como false en una comparación normal )
                     if(strpos($acierto, $palabra) !== false){
                         for($i = 0; $i < strlen($acierto); $i++){
                             if($acierto[$i] == $palabra){
