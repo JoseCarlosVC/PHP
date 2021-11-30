@@ -18,8 +18,9 @@ body {
 
 p {
     position: relative;
-    top: 450px;
+    top: 300px;
     left: 30px;
+    width: 200px;
     font-size: 16px;
     padding: 10px;
     margin: 5px 0px;
@@ -28,7 +29,7 @@ p {
 }
 
 form {
-    height: 400px;
+    height: 200px;
     width: 500px;
     position: relative;
     top: 30px;

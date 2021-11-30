@@ -17,7 +17,7 @@
         //Nada más empezar, pedimos una palabra para adivinar
         if(!isset($_POST['enviar'])){
             $intentos = 0;
-            $win = false; //En caso de ganar o terminar la partida, terminamos el juego
+            $win = false;
     ?>
     <form action="#" method="POST">
         <input type="hidden" name="win" value="<?php echo $win; ?>">
@@ -27,7 +27,7 @@
         <input type="submit" value="Enviar" name="enviar">
     </form>
     <?php
-        }else if(isset($_POST['enviar']) && ($intentos < 6) && ($win == false)){
+        }else if(isset($_POST['enviar']) && ($intentos < 6)){
             $acierto = strtolower($_POST['acierto']);
             $intentos = $_POST['intentos'];
             //Usaremos la variable mostrar para enseñar los caracteres que vayamos acertando
@@ -38,21 +38,21 @@
                 $mostrar = $_POST['mostrar'];
                 //Si se ha introducido un caracter, comprobamos si está en la palabra o no
                 //Por otra parte, si se ha introducido más de un caracter lo comparamos con la palabra para ver si se ha acertado o si se termina el juego
+                
                 if(strlen($palabra) == 1){
                     //Necesitamos una comparación estricta, ya que si strpos devuelve 0 si se encuentra en la primera posicion (0 se interpretará como false en una comparación normal )
                     if(strpos($acierto, $palabra) !== false){
-                        for($i = 0; $i < strlen($acierto); $i++){
-                            if($acierto[$i] == $palabra){
-                                //Si el caracter aparece en la palabra, hacemos que aparezca en pantalla
-                                $mostrar[$i] = $palabra;
-                            }
+                        $mostrar = incluyeLetra($acierto,$palabra,$mostrar);
+                        if($mostrar == $acierto){
+                            echo "<p>Has acertado!</p>";
+                            $win = true;
                         }
                     }else{
                         //Si se encuentra la letra en la palabra, la mostramos, si no, se incrementa el número de fallos
                         $intentos ++;
                         if($intentos == 6){
-                            $win = true;
                             echo "<p>Has fallado, fin del juego</p>";
+                            $win = true;
                         }
                     }
                 }else{
@@ -60,12 +60,13 @@
                         echo "<p>Has acertado!</p>";
                         $win = true;
                     }else{
-                        $win = true;
                         $intentos = 6; //Mostramos la última imagen
                         echo "<p>Has fallado, fin del juego</p>";
+                        $win = true;
                     }
                 }
             }
+            //Mientras siga el juego, mostramos el formulario
         if($win == false){
     ?>
     <form action="#" method="POST">
@@ -83,8 +84,12 @@
         //Las imágenes están numeradas, se irá mostrando una distinta cada vez que haya un fallo
         echo "<img src='./img/Hangman-$intentos.png'>";
         echo "<br>";
-        for($i = 0; $i < strlen($mostrar); $i++){
-            echo $mostrar[$i]." ";
+        if(isset($mostrar)){
+            echo "<p>";
+            for($i = 0; $i < strlen($mostrar); $i++){
+                echo $mostrar[$i]." ";
+            }
+            echo "</p>";
         }
         if($intentos == 6){
             echo "<p>Fin del juego</p>";
