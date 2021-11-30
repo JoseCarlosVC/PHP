@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/ejercicios.css" type="text/css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     <?php
+        require_once("./lib/funciones.inc.php");
         if(isset($win)){
             $win = $_POST['win'];
         }
@@ -27,11 +29,9 @@
     <?php
         }else if(isset($_POST['enviar']) && ($intentos < 6) && ($win == false)){
             $acierto = strtolower($_POST['acierto']);
-            //Usaremos la variable mostrar para enseñar los caracteres que vayamos acertando
-            for($i = 0; $i < strlen($acierto); $i++){
-                $mostrar.="_";
-            }
             $intentos = $_POST['intentos'];
+            //Usaremos la variable mostrar para enseñar los caracteres que vayamos acertando
+            $mostrar = vaciarResultado($acierto);
             //Cuando se empiecen a introducir caracteres, empezamos el juego
             if(isset($_POST['palabra'])){
                 $palabra = strtolower($_POST['palabra']);
