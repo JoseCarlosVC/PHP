@@ -1,11 +1,8 @@
 <?php
     error_reporting(E_ALL);
-    //Sigue entrando aquí!!!!!
-    if(!isset($_SESSION['total'])){
-        session_start();
-        $_SESSION['total'] = 0;
-        $_SESSION['contador'] = 0;
-    }
+    ini_set('display_errors', '1');
+    include_once './controlSesion.php';
+    const CUENTA = array('usuario' => 'jose', 'password' => 'aa');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,28 +21,11 @@
      * terminado de introducir los datos cuando meta un número negativo. Utiliza sesiones.
     */
     if(isset($_POST['Enviar'])){
-        $numIntro = $_POST['numIntro'];
-        if($numIntro > 0){
-            echo "Entro aqui";
-            $_SESSION['total'] += $numIntro;
-            $_SESSION['contador'] += 1;
-        }else{
-            echo "Entro en el else";
-            var_dump($_SESSION['total']);
-            var_dump(($_SESSION['contador']));
-            /*$contador = $_SESSION['contador'];*/
-            /*$media = $total/$contador;*/
-            //echo $_SESSION['total']/$_SESSION['contador'];
-            unset($_SESSION['total']);
-            unset($_SESSION['contador']);
-            session_destroy();
+        if(isset($_POST['usuario']) && isset($_POST['password'])){
+            $usuario = $_POST['usuario'];
+            $password = $_POST['password'];
         }
     }
     ?>
-    <form action="#" method="POST">
-        <label>Introduce un número</label>
-        <input type="number" name="numIntro" autofocus><br>
-        <input type="submit" value="Enviar" name="Enviar">
-    </form>
 </body>
 </html>
