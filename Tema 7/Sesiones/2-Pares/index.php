@@ -1,3 +1,9 @@
+<?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
+    require_once './sesion.php';
+    const CUENTA = array('usuario' => "jose", 'password' => "aa");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,5 +23,15 @@
      */
     
     ?>
+    <form action="#" method="post">
+        <label for="usuario">Introduce el nombre de usuario: </label>
+        <input type="text" name="usuario"
+            <?php
+                if(isset($_POST['login']) && isset($_POST['usuario']) && !empty($_POST['usuario'])){
+                    echo 'value="'.$_POST['usuario'].'"';
+                }
+            ?>
+        >
+    </form>
 </body>
 </html>
