@@ -10,8 +10,9 @@
 <body>
     <?php
         require_once("./lib/funciones.inc.php");
-        if(isset($win)){
+        if(isset($_POST['win'])){
             $win = $_POST['win'];
+            $intentos = $_POST['intentos'];
         }
         //Hay 7 intentos para adivinar la palabra, si se superan, termina el juego
         //Nada más empezar, pedimos una palabra para adivinar
