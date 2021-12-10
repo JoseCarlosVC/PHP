@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./../../ejercicios.css" type="text/css" rel="stylesheet">
+    <!-- <link href="./../../ejercicios.css" type="text/css" rel="stylesheet"> -->
     <title>Document</title>
 </head>
 <body>
@@ -21,7 +21,26 @@
      * número negativo sólo se utiliza para indicar el final de la introducción de datos pero no se incluye
      * en el cómputo. Utiliza sesiones.
      */
-    
+        if(isset($_POST['login'])){
+            if(isset($_POST['usuario']) && isset($_POST['pass'])){
+                $usuario = $_POST['usuario'];
+                $pass = $_POST['pass'];
+                if((CUENTA['usuario'] == $usuario) && (CUENTA['password'] == $pass)){
+                    echo "Datos correctos! </br>";
+                    echo "Iniciando sesión... </br>";
+                    //Iniciamos sesión con valores por defecto
+                    controlSesion::inicioSesion($usuario,0,0,0,0,0);
+                }
+            }
+        }
+            if(isset($_POST['logout'])){
+                echo "Cerrando sesión... </br>";
+                controlSesion::cerrarSesion();
+                echo "Sesion cerrada! </br></br>";
+            }
+            if(controlSesion::isSesionIni()){
+                echo "aqui";
+            }
     ?>
     <form action="#" method="post">
         <label for="usuario">Introduce el nombre de usuario: </label>
@@ -32,6 +51,22 @@
                 }
             ?>
         >
+        <br>
+        <label for="pass">Introduce la contraseña: </label>
+        <input type="password" name="pass">
+        <input type="submit" name="login" value="Iniciar sesión">
+        <?php
+            if(controlSesion::isSesionIni()){
+                ?>
+                <label for="numero">Introduce un número: </label>
+                <input type="number" name="numero">
+                <br>
+                <input type="submit" name="enviar" value="Enviar número">
+                <br>
+                <input type="submit" name="logout" value="Cerrar sesión">
+        <?php
+            }
+        ?>
     </form>
 </body>
 </html>

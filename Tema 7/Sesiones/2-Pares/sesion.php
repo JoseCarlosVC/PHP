@@ -3,13 +3,20 @@
         public static function inicioSesion($usuario, $numero, $contador, $contimp, $mediaimp, $maypar){
             if(session_id() == ''){
                 session_start();
+                //Iniciamos los valores
+                $_SESSION['contador'] = 0;
+                $_SESSION['contimp'] = 0;
+                $_SESSION['mediaimp'] = 0;
+                $_SESSION['maypar'] = 0;
             }
             $_SESSION['usuario'] = $usuario;
             $_SESSION['numero'] = $numero;
-            $_SESSION['contador'] = $contador;
-            $_SESSION['contimp'] = $contimp;
-            $_SESSION['mediaimp'] = $mediaimp;
-            $_SESSION['maypar'] = $maypar;
+            $_SESSION['contador'] += $contador;
+            $_SESSION['contimp'] += $contimp;
+            $_SESSION['mediaimp'] += $mediaimp;
+            if($_SESSION['maypar'] < $maypar){
+                $_SESSION['maypar'] = $maypar;
+            }
         }
         public static function cerrarSesion(){
             if(session_id() == ''){
