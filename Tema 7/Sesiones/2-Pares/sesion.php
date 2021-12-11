@@ -1,23 +1,34 @@
 <?php
     class controlSesion{
-        public static function inicioSesion($usuario, $numero, $contador, $contimp, $mediaimp, $maypar){
+        public static function inicioSesion($usuario, $contador, $contimp, $mediaimp, $maypar){
             if(session_id() == ''){
                 session_start();
                 //Iniciamos los valores
-                $_SESSION['contador'] = 0;
-                $_SESSION['contimp'] = 0;
-                $_SESSION['mediaimp'] = 0;
-                $_SESSION['maypar'] = 0;
             }
             $_SESSION['usuario'] = $usuario;
-            $_SESSION['numero'] = $numero;
-            $_SESSION['contador'] += $contador;
-            $_SESSION['contimp'] += $contimp;
-            $_SESSION['mediaimp'] += $mediaimp;
-            if($_SESSION['maypar'] < $maypar){
-                $_SESSION['maypar'] = $maypar;
-            }
+            $_SESSION['contador'] = $contador;
+            $_SESSION['contimp'] = $contimp;
+            $_SESSION['mediaimp'] = $mediaimp;
+            $_SESSION['maypar'] = $maypar;
         }
+
+        public static function sumarSesion($nombre){
+            $_SESSION[$nombre]++;
+        }
+
+        public static function getSesion($nombre){
+            return $_SESSION[$nombre];
+        }
+
+        public static function sumarMedia($numero){
+            $_SESSION['mediaimp'] += $numero;
+        }
+
+        public static function setMayor($numero){
+            //Si la variable de sesión no es un número (valor por defecto) o es menor que el número que recibe, se cambia
+            if(!is_int($_SESSION['maypar']) || $_SESSION['maypar'] < $numero)
+                $_SESSION['maypar'] = $numero;
+            }
         public static function cerrarSesion(){
             if(session_id() == ''){
                 session_start();
@@ -25,10 +36,6 @@
 
             if(isset($_SESSION['usuario'])){
                 unset($_SESSION['usuario']);
-            }
-
-            if(isset($_SESSION['numero'])){
-                unset($_SESSION['numero']);
             }
 
             if(isset($_SESSION['contador'])){
@@ -55,7 +62,7 @@
                 session_start();
             }
 
-            if(isset($_SESSION['usuario']) && isset($_SESSION['numero']) && isset($_SESSION['contador']) && isset($_SESSION['contimp']) && isset($_SESSION['mediaimp']) && isset($_SESSION['maypar'])){
+            if(isset($_SESSION['usuario']) && isset($_SESSION['contador']) && isset($_SESSION['contimp']) && isset($_SESSION['mediaimp']) && isset($_SESSION['maypar'])){
                 return true;
             }else{
                 return false;
