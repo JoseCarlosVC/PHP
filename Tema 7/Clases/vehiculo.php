@@ -9,7 +9,7 @@
         }
 
         public static function circula(){
-            echo "Circular...";
+            echo "El vehículo circula";
         }
         public function addPersona($pesoPersona){
             $pesoActual = $this->getPeso();

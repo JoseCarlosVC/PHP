@@ -18,6 +18,8 @@
         $coche = new Coche("Azul", 700, 5, 4);
         $coche->circula();
         echo "<br>";
+        var_dump($coche);
+        echo "<br>";
         echo $coche->getColor();
         echo "<br>";
         echo $coche->getPeso();

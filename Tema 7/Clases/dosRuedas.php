@@ -1,5 +1,5 @@
 <?php
-    class dosRuedas extends Vehiculo{
+    class DosRuedas extends Vehiculo{
         private $cilindrada;
 
         function __construct($color,$peso,$cilindrada){
