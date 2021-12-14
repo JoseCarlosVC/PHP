@@ -12,8 +12,9 @@
             echo "El vehículo circula";
         }
         public function addPersona($pesoPersona){
-            $pesoActual = $this->getPeso();
-            $this->setPeso($pesoActual + $pesoPersona);
+            $this->peso += $pesoPersona;
+            /*$pesoActual = $this->getPeso() + $pesoPersona;
+            $this->setPeso($pesoActual);*/
         }
 
         public function __destruct(){

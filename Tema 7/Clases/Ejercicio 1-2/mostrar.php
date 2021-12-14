@@ -14,6 +14,15 @@
         include_once("./coche.php");
         include_once("./camion.php");
         
+        $vehi = new Vehiculo("Negro",1500);
+        var_dump($vehi);
+        echo "<br>";
+        $vehi->circula();
+        echo "<br>";
+        $vehi->addPersona(70);
+        var_dump($vehi);
+        echo "<br>";
+        echo $vehi->getPeso();
     ?>
 </body>
 </html>
