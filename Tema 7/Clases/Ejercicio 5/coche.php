@@ -10,7 +10,11 @@
             $this->numCadenasNieve+=$num;
         }
         public function quitarCadenasNieve($num){
-            $this->numCadenasNieve-=$num;
+            if(($this->numCadenasNieve-$num)<0){
+                $this->numCadenasNieve = 0;
+            }else{
+                $this->numCadenasNieve-=$num;
+            }
         }
         public function __destruct(){
             parent::__destruct();
@@ -23,6 +27,14 @@
 
         public function getNumCadenasNieve(){
             return $this->numCadenasNieve;
+        }
+
+        public function addPersona($pesoPersona){
+            $this->setPeso($this->peso+$pesoPersona);
+            //$this->peso += $pesoPersona;
+            if($this->peso >= 1500 && $this->numCadenasNieve <= 2){
+                echo "Atención, ponga 4 cadenas para la nieve";
+            }
         }
     }
 ?>
