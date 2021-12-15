@@ -7,7 +7,7 @@
             $this->longitud = $longitud;
         }
         public function addRemolque($longRemolque){
-            $this->setLongitud($this->getLongitud() + $longRemolque);
+            $this->longitud += $longRemolque;
         }
 
         function __destruct(){
@@ -16,7 +16,7 @@
         }
 
         public function setLongitud($longitud){
-            $this->$longitud = $longitud;
+            $this->longitud = $longitud;
         }
 
         public function getLongitud(){

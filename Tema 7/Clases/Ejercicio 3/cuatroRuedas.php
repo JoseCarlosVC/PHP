@@ -6,9 +6,6 @@
             parent::__construct($color,$peso);
             $this->numPuertas = $numPuertas;
         }
-        public static function repintar($color){
-            parent::setColor($color);
-        }
         function __destruct(){
             parent::__destruct();
             unset($this->numPuertas);
@@ -18,7 +15,7 @@
         }
 
         public function setNumPuertas($numPuertas){
-            $this->$numPuertas = $numPuertas;
+            $this->numPuertas = $numPuertas;
         }
     }
 ?>

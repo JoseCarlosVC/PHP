@@ -7,10 +7,10 @@
             $this->numCadenasNieve = $numCadenasNieve;
         }
         public function addCadenasNieve($num){
-            $this->setNumCadenasNieve($this->getNumCadenasNieve() + $num);
+            $this->numCadenasNieve+=$num;
         }
         public function quitarCadenasNieve($num){
-            $this->setNumCadenasNieve($this->getNumCadenasNieve() - $num);
+            $this->numCadenasNieve-=$num;
         }
 
         function __destruct(){
@@ -19,7 +19,7 @@
         }
 
         public function setNumCadenasNieve($numCadenasNieve){
-            $this->$numCadenasNieve = $numCadenasNieve;
+            $this->numCadenasNieve = $numCadenasNieve;
         }
 
         public function getNumCadenasNieve(){

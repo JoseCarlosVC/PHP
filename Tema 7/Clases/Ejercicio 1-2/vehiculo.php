@@ -13,8 +13,6 @@
         }
         public function addPersona($pesoPersona){
             $this->peso += $pesoPersona;
-            /*$pesoActual = $this->getPeso() + $pesoPersona;
-            $this->setPeso($pesoActual);*/
         }
 
         public function __destruct(){
@@ -27,7 +25,7 @@
         }
 
         public function setColor($color){
-            $this->$color = $color;
+            $this->color = $color;
         }
 
         public function getPeso(){
@@ -35,8 +33,7 @@
         }
 
         public function setPeso($peso){
-            $this->$peso = $peso;
+            $this->peso = $peso;
         }
-
     }
 ?>

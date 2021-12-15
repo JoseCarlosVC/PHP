@@ -6,7 +6,7 @@
             parent::__construct($color,$peso);
             $this->cilindrada;
         }
-        public static function ponerGasolina($litros){
+        public function ponerGasolina($litros){
             return $litros;
         }
 
@@ -20,7 +20,7 @@
         }
 
         public function setCilindrada($cilindrada){
-            $this->$cilindrada = $cilindrada;
+            $this->cilindrada = $cilindrada;
         }
     }
 ?>
