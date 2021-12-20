@@ -8,6 +8,7 @@
 </head>
 <body>
     <?php
+        error_reporting(E_ALL);
         include_once("./vehiculo.php");
         include_once("./dosRuedas.php");
         include_once("./cuatroRuedas.php");
