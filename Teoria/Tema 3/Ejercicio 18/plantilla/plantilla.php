@@ -27,9 +27,11 @@
                     $tienda = $_POST['tienda'];
                     $producto = $_POST['producto'];
                     $cantidad = $_POST['cantidad'];
+                    var_dump($cantidad);
                     //Pueden darse dos casos, insertar una nueva línea en la tabla stock o actualizar una existente
                     $consulta = $dwes->query("SELECT producto,tienda,unidades FROM stock WHERE producto='$producto' AND tienda=$tienda");
                     if($resultado = $consulta->fetch()){
+                        var_dump($resultado['unidades']);
                         //Si existe, UPDATE
                         $actualizar = $dwes->prepare("UPDATE stock SET unidades=:cantidad WHERE producto=:producto AND tienda=:tienda");
                         $actualizar->bindParam(":cantidad",$cantidad);
