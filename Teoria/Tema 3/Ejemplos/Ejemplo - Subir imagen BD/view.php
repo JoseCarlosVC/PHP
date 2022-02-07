@@ -11,7 +11,7 @@ if(!empty($_GET['id'])){
     
     //Check connection
     if($db->connect_error){
-       die("Connection failed: " . $db->connect_error);
+        die("Connection failed: " . $db->connect_error);
     }
     
     //Get image data from database
@@ -27,4 +27,3 @@ if(!empty($_GET['id'])){
         echo 'Image not found...';
     }
 }
-?>

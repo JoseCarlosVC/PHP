@@ -3,3 +3,47 @@
     margin: 0;
     padding: 0;
 }
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #577590;
+
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.seccion{
+    flex: 1 0 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+h2{
+    color: #F2A541;
+}
+
+.seccion:nth-of-type(2){
+    background-color: #D78A76;
+}
+
+.detalles{
+    text-decoration: none;
+}
+
+.comprar{
+    text-decoration: none;
+
+}
+
+.detalles,.comprar{
+    color: #F2A541;
+}
+
+.carrito{
+    margin: 5vh 0 5vh;
+}
