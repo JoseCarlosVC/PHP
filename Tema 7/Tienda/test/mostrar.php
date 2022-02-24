@@ -9,9 +9,9 @@ if (isset($_GET['enviar'])) {
         if ($consulta->num_rows > 0) {
             $imgData = $consulta->fetch_assoc();
 ?>
-            <div class="galeria">
-                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($imgData['imagen']); ?>" alt="" srcset="">
-            </div>
+<div class="galeria">
+    <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($imgData['imagen']); ?>" alt="" srcset="">
+</div>
 <?php
         } else {
             echo "no";

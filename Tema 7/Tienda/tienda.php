@@ -57,15 +57,16 @@ if (isset($_GET['cod'])) {
                 $stock = $catalogo->fetch_assoc();
                 while ($stock != null) {
             ?>
-                    <div class="articulo">
-                        <div class="imagen">
-                            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($stock['imagen']); ?>" alt="" srcset="" width="250px" height="250px">
-                        </div>
-                        <p class="nombre"><?php echo $stock['nombre']; ?></p>
-                        <p class="precio"><?php echo $stock['precio']; ?> €</p>
-                        <a href="./detalles.php?cod=<?php echo $stock['cod']; ?>" class="detalles">Detalles</a>
-                        <a href="./tienda.php?cod=<?php echo $stock['cod']; ?>" class="comprar">Comprar</a>
-                    </div>
+            <div class="articulo">
+                <div class="imagen">
+                    <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($stock['imagen']); ?>" alt=""
+                        srcset="" width="250px" height="250px">
+                </div>
+                <p class="nombre"><?php echo $stock['nombre']; ?></p>
+                <p class="precio"><?php echo $stock['precio']; ?> €</p>
+                <a href="./detalles.php?cod=<?php echo $stock['cod']; ?>" class="detalles">Detalles</a>
+                <a href="./tienda.php?cod=<?php echo $stock['cod']; ?>" class="comprar">Comprar</a>
+            </div>
             <?php
                     $stock = $catalogo->fetch_assoc();
                 }
@@ -84,15 +85,16 @@ if (isset($_GET['cod'])) {
                     $articulo = $conexion->query("SELECT nombre,precio,imagen FROM producto WHERE cod=$codigo");
                     $item = $articulo->fetch_assoc();
             ?>
-                    <div class="carrito">
-                        <div class="imagen">
-                            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($item['imagen']); ?>" alt="" srcset="" width="150px" height="150px">
-                        </div>
-                        <p class="nombre"><?php echo $item['nombre']; ?></p>
-                        <p class="precio"><?php echo $item['precio']; ?> €</p>
-                        <p class="unidades"><?php echo $unidad; ?> Uds.</p>
-                        <a href="./tienda.php?borrar=<?php echo $codigo ?>" class="detalles">Eliminar</a>
-                    </div>
+            <div class="carrito">
+                <div class="imagen">
+                    <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($item['imagen']); ?>" alt=""
+                        srcset="" width="150px" height="150px">
+                </div>
+                <p class="nombre"><?php echo $item['nombre']; ?></p>
+                <p class="precio"><?php echo $item['precio']; ?> €</p>
+                <p class="unidades"><?php echo $unidad; ?> Uds.</p>
+                <a href="./tienda.php?borrar=<?php echo $codigo ?>" class="detalles">Eliminar</a>
+            </div>
             <?php
                 }
             }
